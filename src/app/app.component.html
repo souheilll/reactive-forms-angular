@@ -86,6 +86,21 @@
       {{ role.title }}
     </option>
   </select>
+  <div formArrayName="aliases">
+    <h2>FormArray exemple</h2>
+
+    <button type="button" (click)="addAlias()">+ Add another alias</button>
+
+    <div
+      *ngFor="let alias of aliases.controls; let i = index"
+      [formGroupName]="i"
+    >
+      <!-- The repeated alias template -->
+      <label for="alias-{{ i }}">Alias:</label>
+      <input type="text" formControlName="name" />
+      <input type="text" formControlName="amount" />
+    </div>
+  </div>
 
   <div>
     <button type="submit" class="button">Register</button>
